@@ -4,7 +4,7 @@ This is a **node.js, express, typescript** starter with minimal setup to get you
 
 * Centralized logger config with Pino 
 
-### Features
+### Features 
 
 - Express
 - TypeScript
@@ -63,3 +63,4 @@ npm install pino pino-http pino-pretty
 ```bash
 npm install --save-dev jest ts-jest @types/jest supertest @types/supertest
 ```
+
