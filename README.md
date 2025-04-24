@@ -2,15 +2,19 @@
 
 This is a **node.js, express, typescript** starter with minimal setup to get you up and running!
 
-### Feature
+* Centralized logger config with Pino 
 
-- express
+### Features
+
+- Express
 - TypeScript
 - Nodemon
 - Eslint
 - Prettier
+- Jest
+- Pino Logger 
 
-Steps:
+### 📦 Install dependencies
 
 1. Setup
 
@@ -45,3 +49,17 @@ npm install eslint-plugin-node --save-dev
 ```
 
 Create a new .prettierrc file in the root directory of your project.
+
+3. Centralized Logger wth pino
+
+```bash
+npm install pino pino-http pino-pretty
+```
+
+4. Centralized error handler
+
+5. Testing with Jest
+
+```bash
+npm install --save-dev jest ts-jest @types/jest supertest @types/supertest
+```

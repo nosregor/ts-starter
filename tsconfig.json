@@ -1,19 +1,17 @@
 {
+  "exclude": ["./coverage", "node_modules", "./dist", "__tests__", "jest.config.js"],
   "compilerOptions": {
-    "target": "ES2022", // Use a modern ECMAScript version
-    "module": "Node16", // Use ES modules
-    "outDir": "dist", // Output directory for compiled files
-    "rootDir": "src", // Source directory
-    "esModuleInterop": true,
+    "target": "ES6",
+    "module": "commonjs",
+    "rootDir": ".",
+    "outDir": "./dist",
     "strict": true,
-    "moduleResolution": "node16",
-    "skipLibCheck": true, // Skip library checks for faster builds
+    "moduleResolution": "node",
+    "removeComments": true,
     "sourceMap": true,
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*", "src/types/*"]
-    }
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["./src/**/*.ts"]
 }
