@@ -5,77 +5,44 @@ This is a **node.js, express, typescript** starter with minimal setup to get you
 Ref: 
 - https://medium.com/@gabrieldrouin/node-js-2025-guide-how-to-setup-express-js-with-typescript-eslint-and-prettier-b342cd21c30d#e155
 - https://transloadit.com/devtips/building-restful-apis-with-node-js-express-and-typescript/
-### Technical Features 
+
+## Technical Features 
 
 - Express.js + TypeScript
 - Nodemon
 - Linting and formatting (eslint, prettier)
 - Testing: unit tests (Jest), integration (supertest)
 - Logger (Pino)
-- Error handling
-- API documentation with swagger
+- Global Error handling
+- API documentation (swagger)
 
-
-### 📦 Install dependencies
-
-1. Setup express amd typescript
-
+## 📁 Project Structure
 ```bash
-npm init
+src/
+├── config/
+│   └── index.ts
+├── controllers/
+│   └── userController.ts
+├── docs/
+│   └── swagger.ts
+├── lib/
+│   └── db.ts
+├── middleware/
+│   └── errorHandler.ts
+├── models/
+│   └── User.ts
+├── routes/
+│   └── example.ts
+│   └── users.ts
+├── services/
+│   └── userService.ts
+├── utils/
+│   └── errors.ts
+│   └── logger.ts
+├── app.ts
+├── server.ts
+.env
 ```
-
-```bash
-npm install express typescript @types/express @types/node nodemon --save-dev
-```
-
-Create a new file called tsconfig.json in the root of your project.
-
-2. To add ESLint and Prettier to your project, follow these steps:
-
-Install the necessary ESLint plugins and configurations for TypeScript:
-
-```bash
-npm install eslint prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier --save-dev
-```
-
-Install the necessary ESLint plugin for Node.js:
-
-```bash
-npm install eslint-plugin-node --save-dev
-```
-
-Create a new .eslintrc.json file in the root directory of your project.
-Create a new .prettierrc file in the root directory of your project.
-
-3. [Logging wth Pino](https://github.com/pinojs/pino)
-
-```bash
-npm install pino pino-http pino-pretty
-```
-
-4. Centralized error handler
-
-5. [Getting started with Jest](https://jestjs.io/docs/getting-started)
-
-```bash
-npm install --save-dev jest ts-jest @types/jest supertest @types/supertest
-```
-
-Generate a basic configuration file:
-
-```bash
-npm init jest@latest
-```
-
-6. API documentation integrating Swagger/OpenAPI
-
-```bash
-npm install swagger-ui-express swagger-jsdoc
-npm i --save-dev @types/swagger-jsdoc @types/swagger-ui-express
-```
-
-
-
 
 ### Deployment considerations
 When preparing your API for production, keep in mind the following best practices:
