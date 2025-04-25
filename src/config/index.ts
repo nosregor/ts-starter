@@ -9,6 +9,7 @@ interface IConfig {
   port: string | number
   database: {
     MONGO_URI: string
+    REDIS_URL: string
   }
   secret: string
 }
@@ -30,12 +31,14 @@ const APP_NAME: string = getStringEnv('APP_NAME', 'app name')
 const PORT: string | number = getStringEnv('PORT', '3000')
 const SECRET = getStringEnv('SECRET', 'TOP_SECRET')
 const MONGO_URI = getStringEnv('MONGO_URI', 'mongodb://localhost:27017/example')
+const REDIS_URL = getStringEnv('REDIS_URL', 'redis://localhost:6379')
 
 const development: IConfig = {
   name: APP_NAME,
   port: PORT,
   database: {
     MONGO_URI: MONGO_URI,
+    REDIS_URL: REDIS_URL
   },
   secret: SECRET,
 }
@@ -45,6 +48,7 @@ const production: IConfig = {
   port: PORT,
   database: {
     MONGO_URI: MONGO_URI,
+    REDIS_URL: REDIS_URL
   },
   secret: SECRET,
 }
