@@ -12,7 +12,7 @@ const router = Router()
  *       - Health
  *     responses:
  *       200:
- *         description: List of users
+ *         description: Health status of service
  */
 router.get('/', (req: Request, res: Response) => {
   // req.log.info('Health check pinged') // automatically bound to request
