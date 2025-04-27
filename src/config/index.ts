@@ -38,7 +38,7 @@ const development: IConfig = {
   port: PORT,
   database: {
     MONGO_URI: MONGO_URI,
-    REDIS_URL: REDIS_URL
+    REDIS_URL: REDIS_URL,
   },
   secret: SECRET,
 }
@@ -48,7 +48,7 @@ const production: IConfig = {
   port: PORT,
   database: {
     MONGO_URI: MONGO_URI,
-    REDIS_URL: REDIS_URL
+    REDIS_URL: REDIS_URL,
   },
   secret: SECRET,
 }

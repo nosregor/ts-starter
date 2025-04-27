@@ -25,7 +25,7 @@ async function startServer() {
   }
 }
 
-process.on('uncaughtException', (error) => {
+process.on('uncaughtException', error => {
   logger.error(error, 'Uncaught Exception')
   process.exit(1)
 })

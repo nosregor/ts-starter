@@ -1,8 +1,8 @@
-import { Request, Response, NextFunction } from 'express'
+import { Request, Response } from 'express'
 import { AppError } from '../utils/errors'
 import logger from '../utils/logger'
 
-export function errorHandler(err: Error, req: Request, res: Response, next: NextFunction): void {
+export function errorHandler(err: Error, req: Request, res: Response): void {
   const isAppError = err instanceof AppError
 
   const statusCode = isAppError ? err.statusCode : 500

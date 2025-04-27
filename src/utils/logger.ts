@@ -1,5 +1,5 @@
 import pino from 'pino'
-import pinoPretty from 'pino-pretty'
+// import pinoPretty from 'pino-pretty'
 
 const logger = pino({
   name: process.env.APP_NAME,

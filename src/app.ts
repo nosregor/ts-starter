@@ -35,7 +35,7 @@ app.all('*', (req, res, next) => {
   next(new AppError(`This path ${req.originalUrl} isn't on this server!`, 404))
 })
 
-// Global error handling 
+// Global error handling
 // ❗️Centralized error handling must come **after** routes
 app.use(errorHandler)
 

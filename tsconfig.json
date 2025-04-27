@@ -1,5 +1,4 @@
 {
-  "exclude": ["./coverage", "node_modules", "./dist", "__tests__", "jest.config.js"],
   "compilerOptions": {
     "target": "ES6",
     "module": "commonjs",
@@ -11,7 +10,10 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    // Recommended: Compiler complains about expressions implicitly typed as 'any'
+    "noImplicitAny": true
   },
-  "include": ["./src/**/*.ts"]
+  "include": ["./src/**/*.ts"],
+  "exclude": ["./coverage", "node_modules", "./dist", "__tests__", "jest.config.js"]
 }
