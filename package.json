@@ -9,10 +9,12 @@
   "scripts": {
     "dev": "nodemon",
     "start": "node dist/serve.js",
-    "build": "tsc --noEmit",
+    "build": "tsc .",
     "test": "NODE_ENV=test jest --runInBand --coverage --detectOpenHandles --silent --forceExit",
-    "lint": "eslint . --fix",
-    "format": "prettier --write \"**/*.ts\""
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "cors": "^2.8.5",

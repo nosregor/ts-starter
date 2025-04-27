@@ -8,6 +8,7 @@ interface IConfig {
   name: string
   port: string | number
   database: {
+    POSTGRES_URL: string
     MONGO_URI: string
     REDIS_URL: string
   }
@@ -30,7 +31,10 @@ const NODE_ENV: string = getStringEnv('NODE_ENV', 'development')
 const APP_NAME: string = getStringEnv('APP_NAME', 'app name')
 const PORT: string | number = getStringEnv('PORT', '3000')
 const SECRET = getStringEnv('SECRET', 'TOP_SECRET')
-// const MONGO_URI = getStringEnv('MONGO_URI', 'mongodb://localhost:27017/example')
+const POSTGRES_URL = getStringEnv(
+  'POSTGRES_URL',
+  'postgresql://postgres:password@postgres:5432/feebee',
+)
 const MONGO_URI = getStringEnv('MONGO_URI', 'mongodb://localhost:27017/example')
 const REDIS_URL = getStringEnv('REDIS_URL', 'redis://localhost:6379')
 
@@ -38,6 +42,7 @@ const development: IConfig = {
   name: APP_NAME,
   port: PORT,
   database: {
+    POSTGRES_URL: POSTGRES_URL,
     MONGO_URI: MONGO_URI,
     REDIS_URL: REDIS_URL,
   },
@@ -48,6 +53,7 @@ const production: IConfig = {
   name: APP_NAME,
   port: PORT,
   database: {
+    POSTGRES_URL: POSTGRES_URL,
     MONGO_URI: MONGO_URI,
     REDIS_URL: REDIS_URL,
   },

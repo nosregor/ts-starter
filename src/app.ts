@@ -23,8 +23,9 @@ app.use(pinoHttp({ logger, autoLogging: true }))
 
 // Routes
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
-app.use('/api', exampleRoutes)
 app.use('/healthz', healthRoutes)
+app.use('/user', healthRoutes)
+app.use('/api', exampleRoutes)
 
 // Unhandled routes
 app.all('*', (req, res, next) => {
