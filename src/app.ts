@@ -1,7 +1,8 @@
-import express, { Request, Response } from 'express'
+import express from 'express'
 import pinoHttp from 'pino-http'
 import logger from './utils/logger'
 import exampleRoutes from './routes/example'
+import healthRoutes from './routes/healthz'
 import { AppError } from './utils/errors'
 import { errorHandler } from './middleware/errorHandler'
 import { swaggerSpec } from './docs/swagger'
@@ -23,12 +24,7 @@ app.use(pinoHttp({ logger, autoLogging: true }))
 // Routes
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 app.use('/api', exampleRoutes)
-
-// Health check route
-app.get('/healthz', (req: Request, res: Response) => {
-  // req.log.info('Health check pinged') // automatically bound to request
-  res.status(200).json({ status: 'OK', timestamp: new Date() })
-})
+app.use('/healthz', healthRoutes)
 
 // Unhandled routes
 app.all('*', (req, res, next) => {
