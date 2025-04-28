@@ -4,7 +4,7 @@ import logger from './utils/logger'
 import exampleRoutes from './routes/example'
 import healthRoutes from './routes/healthz'
 import { AppError } from './utils/errors'
-import { errorHandler } from './middleware/errorHandler'
+import { errorHandler } from './middlewares/errorHandler'
 import { swaggerSpec } from './docs/swagger'
 import swaggerUi from 'swagger-ui-express'
 import helmet from 'helmet'
@@ -24,7 +24,6 @@ app.use(pinoHttp({ logger, autoLogging: true }))
 // Routes
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 app.use('/healthz', healthRoutes)
-app.use('/user', healthRoutes)
 app.use('/api', exampleRoutes)
 
 // Unhandled routes
