@@ -5,8 +5,30 @@ import { defineConfig } from 'eslint/config'
 
 // https://typescript-eslint.io/getting-started
 export default defineConfig([
-  { files: ['**/*.{js,mjs,cjs,ts}'], plugins: { js }, extends: ['js/recommended'] },
-  { files: ['**/*.{js,mjs,cjs,ts}'], languageOptions: { globals: globals.browser } },
+  // Base configurations
   js.configs.recommended,
-  tseslint.configs.recommended,
+  ...tseslint.configs.recommended,
+
+  // Global ignores (most efficient)
+  {
+    ignores: [
+      'dist/**', // Ignore entire dist folder
+      'coverage/**', // Test coverage
+      '**/*.d.ts', // TypeScript declaration files
+      'node_modules/**', // Already ignored by default, but explicit is better
+    ],
+  },
+
+  // Your rules and overrides
+  {
+    files: ['**/*.{js,mjs,cjs,ts}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: {
+      globals: globals.browser,
+    },
+    rules: {
+      // Your custom rules here
+    },
+  },
 ])
