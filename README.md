@@ -2,11 +2,6 @@
 
 This is a **node.js, express, typescript** starter with minimal setup to get you up and running!
 
-Ref:
-
-- https://medium.com/@gabrieldrouin/node-js-2025-guide-how-to-setup-express-js-with-typescript-eslint-and-prettier-b342cd21c30d#e155
-- https://transloadit.com/devtips/building-restful-apis-with-node-js-express-and-typescript/
-
 ## Technical Features
 
 - Express.js + TypeScript
@@ -23,27 +18,19 @@ Ref:
 src/
 ├── config/
 │   └── index.ts
-├── controllers/
-│   └── userController.ts
 ├── docs/
-│   └── swagger.ts
-├── lib/
-│   └── db.ts
+│   └── openapi.ts
 ├── middleware/
 │   └── errorHandler.ts
 │   └── validate.ts       # Zod validation middleware
-├── models/
-│   └── User.ts
 ├── routes/
 │   └── example.ts
 │   └── users.ts
-├── services/
-│   └── userService.ts
+├── schemas/           # New Zod schemas directory
+│   └── userSchema.ts
 ├── utils/
 │   └── errors.ts
 │   └── logger.ts
-├── validators/           # New Zod schemas directory
-│   └── validator.ts
 ├── app.ts
 ├── server.ts
 .env
@@ -96,3 +83,9 @@ Double check linter rules
   }
 }
 ```
+
+Ref:
+
+- https://medium.com/@gabrieldrouin/node-js-2025-guide-how-to-setup-express-js-with-typescript-eslint-and-prettier-b342cd21c30d#e155
+- https://transloadit.com/devtips/building-restful-apis-with-node-js-express-and-typescript/
+- https://greenydev.com/blog/zod-validation/
