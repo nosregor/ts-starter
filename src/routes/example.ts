@@ -1,9 +1,10 @@
 import { Router, Request, Response } from 'express'
-import { validateAuthBody } from '../middlewares/validate'
+import { validate } from '../middlewares/validate'
+import { createUserSchema } from '../schemas/userSchema'
 
 const router = Router()
 
-router.post('/body-params', validateAuthBody, (req: Request, res: Response) => {
+router.post('/body-params', validate(createUserSchema), (req: Request, res: Response) => {
   /**
    * Get variables from body params
    */

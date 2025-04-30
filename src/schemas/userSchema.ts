@@ -5,7 +5,7 @@ export enum UserStatus {
   DELETED = 'deleted',
 }
 
-export const bodyParamsValidator = z.object({
+export const createUserSchema = z.object({
   email: z
     .string({
       required_error: 'Email is required',
@@ -18,14 +18,12 @@ export const bodyParamsValidator = z.object({
     .regex(/[a-z]/, 'Password must contain at least one lowercase letter')
     .regex(/[0-9]/, 'Password must contain at least one number'),
   mobile: z
-    .string({
-      required_error: 'Mobile number is required',
-    })
-    .regex(
-      /^\+?[1-9]\d{1,14}$/, // E.164 format
+    .string({ required_error: 'Mobile number is required' })
+    .transform(val => val.replace(/\s+/g, ''))
+    .refine(
+      val => /^\+?[1-9]\d{7,14}$/.test(val), // E.164 format
       'Invalid mobile number format. Use international format (+1234567890)',
-    )
-    .transform(val => val.replace(/\s+/g, '')),
+    ),
 })
 
 export const queryStringValidator = z.object({
