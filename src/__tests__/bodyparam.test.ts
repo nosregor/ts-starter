@@ -89,7 +89,7 @@ describe('POST /api/body-params', () => {
     expect(response.body.mobile).toBe('+1234567890')
   })
 
-  it.only('should reject invalid mobile number', async () => {
+  it('should reject invalid mobile number', async () => {
     const invalidNumbers = [
       'abc',
       '+123',

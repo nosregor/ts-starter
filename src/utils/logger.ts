@@ -5,7 +5,7 @@ import config from '../config'
 const isTest = config.node_env === 'test'
 
 const logger = pino({
-  name: config.name,
+  name: config.name || 'app',
   level: isTest ? 'silent' : config.node_env === 'production' ? 'info' : 'debug',
   transport: {
     target: 'pino-pretty',
