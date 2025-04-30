@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 
 interface IConfig {
+  node_env: string
   name: string
   port: string | number
   database: {
@@ -37,6 +38,7 @@ const MONGO_URI = getStringEnv('MONGO_URI', 'mongodb://localhost:27017/test')
 const REDIS_URL = getStringEnv('REDIS_URL', 'redis://localhost:6379')
 
 const test: IConfig = {
+  node_env: NODE_ENV,
   name: APP_NAME,
   port: PORT,
   database: {
@@ -48,6 +50,7 @@ const test: IConfig = {
 }
 
 const development: IConfig = {
+  node_env: NODE_ENV,
   name: APP_NAME,
   port: PORT,
   database: {
@@ -59,6 +62,7 @@ const development: IConfig = {
 }
 
 const production: IConfig = {
+  node_env: NODE_ENV,
   name: APP_NAME,
   port: PORT,
   database: {

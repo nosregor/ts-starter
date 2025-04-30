@@ -1,9 +1,12 @@
 import pino from 'pino'
+import config from '../config'
 // import pinoPretty from 'pino-pretty'
 
+const isTest = config.node_env === 'test'
+
 const logger = pino({
-  name: process.env.APP_NAME,
-  level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
+  name: config.name,
+  level: isTest ? 'silent' : config.node_env === 'production' ? 'info' : 'debug',
   transport: {
     target: 'pino-pretty',
     options: {
