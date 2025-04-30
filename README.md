@@ -10,7 +10,7 @@ Ref:
 ## Technical Features
 
 - Express.js + TypeScript
-- Nodemon
+- Request Validation with Zod
 - Linting and formatting (eslint, prettier)
 - Testing: unit tests (Jest), integration (supertest)
 - Logger (Pino)
@@ -31,6 +31,7 @@ src/
 │   └── db.ts
 ├── middleware/
 │   └── errorHandler.ts
+│   └── validate.ts       # Zod validation middleware
 ├── models/
 │   └── User.ts
 ├── routes/
@@ -41,6 +42,8 @@ src/
 ├── utils/
 │   └── errors.ts
 │   └── logger.ts
+├── validators/           # New Zod schemas directory
+│   └── validator.ts
 ├── app.ts
 ├── server.ts
 .env
@@ -61,6 +64,16 @@ URL paths and any required/optional parameters.
 Request and response formats, including expected headers and body contents.
 Error handling, including error codes and messages for different failure scenarios.
 Examples of typical requests and responses to illustrate how the API works in practice.
+
+Disable automatic schema synchronization
+
+Configure secure HTTP headers and rate limiting
+
+Use environment variables for sensitive data
+
+Add validation tests for all endpoints
+
+Document validation requirements in your API docs
 
 ## Old eslint config
 

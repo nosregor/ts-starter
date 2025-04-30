@@ -33,8 +33,19 @@ const POSTGRES_URL = getStringEnv(
   'POSTGRES_URL',
   'postgresql://postgres:password@postgres:5432/feebee',
 )
-const MONGO_URI = getStringEnv('MONGO_URI', 'mongodb://localhost:27017/example')
+const MONGO_URI = getStringEnv('MONGO_URI', 'mongodb://localhost:27017/test')
 const REDIS_URL = getStringEnv('REDIS_URL', 'redis://localhost:6379')
+
+const test: IConfig = {
+  name: APP_NAME,
+  port: PORT,
+  database: {
+    POSTGRES_URL: POSTGRES_URL,
+    MONGO_URI: MONGO_URI,
+    REDIS_URL: REDIS_URL,
+  },
+  secret: SECRET,
+}
 
 const development: IConfig = {
   name: APP_NAME,
@@ -60,6 +71,6 @@ const production: IConfig = {
 
 const config: {
   [name: string]: IConfig
-} = { development, production }
+} = { test, development, production }
 
 export default config[NODE_ENV]

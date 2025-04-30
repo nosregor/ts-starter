@@ -12,6 +12,7 @@ export default defineConfig([
   // Global ignores (most efficient)
   {
     ignores: [
+      './src/__tests__/**', // Ignore test files
       'dist/**', // Ignore entire dist folder
       'coverage/**', // Test coverage
       '**/*.d.ts', // TypeScript declaration files
@@ -25,7 +26,7 @@ export default defineConfig([
     plugins: { js },
     extends: ['js/recommended'],
     languageOptions: {
-      globals: globals.browser,
+      globals: globals.node,
     },
     rules: {
       // Your custom rules here

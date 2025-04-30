@@ -1,10 +1,15 @@
-import { Router } from 'express'
-import { AppError } from '../utils/errors'
+import { Router, Request, Response } from 'express'
+import { validateAuthBody } from '../middlewares/validator'
 
 const router = Router()
 
-router.get('/fail', () => {
-  throw new AppError('This route fails intentionally', 400)
+router.post('/body-params', validateAuthBody, (req: Request, res: Response) => {
+  /**
+   * Get variables from body params
+   */
+  const { email, password, mobile } = req.body
+
+  res.status(200).send({ email, password, mobile })
 })
 
 export default router
