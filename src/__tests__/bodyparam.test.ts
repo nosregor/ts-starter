@@ -3,6 +3,7 @@ import app from '../app'
 
 describe('POST /api/body-params', () => {
   const validPayload = {
+    name: 'Test User',
     email: 'test@example.com',
     password: 'SecurePassword123',
     mobile: '+1234567890',

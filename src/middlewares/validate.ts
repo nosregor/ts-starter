@@ -11,7 +11,6 @@ export const validate =
 
       next()
     } catch (error) {
-      // Handle validation errors
       console.error('Validation error:', error)
       if (error instanceof z.ZodError) {
         res.status(400).json({

@@ -5,10 +5,10 @@ import exampleRoutes from './routes/example'
 import healthRoutes from './routes/healthz'
 import { AppError } from './utils/errors'
 import { errorHandler } from './middlewares/errorHandler'
-import { swaggerSpec } from './docs/swagger'
-import swaggerUi from 'swagger-ui-express'
 import helmet from 'helmet'
 import cors from 'cors'
+import swaggerUi from 'swagger-ui-express'
+import { openApiDocument } from './docs/openapi'
 
 const app = express()
 
@@ -22,7 +22,7 @@ app.use(express.json({ limit: '10kb' }))
 app.use(pinoHttp({ logger, autoLogging: true }))
 
 // Routes
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openApiDocument))
 app.use('/healthz', healthRoutes)
 app.use('/api', exampleRoutes)
 

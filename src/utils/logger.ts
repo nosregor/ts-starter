@@ -1,6 +1,5 @@
 import pino from 'pino'
 import config from '../config'
-// import pinoPretty from 'pino-pretty'
 
 const isTest = config.node_env === 'test'
 
