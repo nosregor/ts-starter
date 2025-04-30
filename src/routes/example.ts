@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import { validateAuthBody } from '../middlewares/validator'
+import { validateAuthBody } from '../middlewares/validate'
 
 const router = Router()
 

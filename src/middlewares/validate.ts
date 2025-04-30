@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express'
-import { bodyParamsValidator } from '../validators'
+import { bodyParamsValidator } from '../validators/validator'
 import { z } from 'zod'
 
 export const validateAuthBody: RequestHandler = (
