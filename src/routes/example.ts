@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import { validate } from '../middlewares/validate'
+import { validate } from '../middlewares/validateSchema'
 import { userSchema } from '../schemas/userSchema'
 
 const router = Router()
